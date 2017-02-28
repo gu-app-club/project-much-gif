@@ -22,7 +22,6 @@ html, body {
 .cool-input {
   width: 60%;
   height: 50px;
-  border: none;
   line-height: 50px;
   font-size: 32px;
   padding-left: 10px;
@@ -32,13 +31,15 @@ html, body {
   color: #282828;
   font-weight: lighter;
   margin-bottom:50px;
-  background: #efefef;
+  background: white;
+  border-color: #eee;
+  border: 1px solid #eee;
 }
 
 .cool-input:focus {
   outline: none;
   transform: translateY(-10px);
-  box-shadow: 0 14px 28px rgba(10,10,10,0.25), 0 10px 10px rgba(10,10,10,0.22);
+  box-shadow: 0 14px 28px rgba(150,150,150,0.25), 0 10px 10px rgba(150,150,150,0.22);
 }
 
 .cool-input:hover {
