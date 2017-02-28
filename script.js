@@ -4,14 +4,13 @@ function setBackground(url) {
 
 function sendGifRequest(search) {
   $.ajax({
-    url: "http://api.giphy.com/v1/gifs/search",
+    url: "https://api.giphy.com/v1/gifs/search",
     type: "get",
     data: {
       api_key: "dc6zaTOxFJmzC",
       q: search
     }
   }).done(function(response) {
-    console.log(response)
     setBackground(response.data[0].images.downsized.url)
   })
 }
