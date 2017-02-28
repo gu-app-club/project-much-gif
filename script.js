@@ -1,3 +1,7 @@
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 function setBackground(url) {
   $(".background").css("background-image", `url("${url}")`)
 }
@@ -11,7 +15,8 @@ function sendGifRequest(search) {
       q: search
     }
   }).done(function(response) {
-    setBackground(response.data[0].images.downsized.url)
+    let index = getRandomInt(0, response.data.length - 1)
+    setBackground(response.data[index].images.downsized.url)
   })
 }
 
@@ -21,5 +26,10 @@ $(document).ready(function() {
   $(".cool-input").addClass("shown")
   $(".cool-input").change(function() {
     sendGifRequest($(this).val())
-  })
+  }).keypress(function (e) {
+  if (e.which == 13) {
+    sendGifRequest($(this).val())
+    return false;
+  }
+})
 })
