@@ -20,16 +20,30 @@ function sendGifRequest(search) {
   })
 }
 
+const randomPrompts = [
+  'Type your favorite TV show!',
+  'Type your favorite animal!',
+  'Type your favorite movie!',
+  'Type a place you want to visit!'
+]
+
 
 $(document).ready(function() {
 
-  $(".cool-input").addClass("shown")
+  // Set random placeholder
+  let index = getRandomInt(0, randomPrompts.length - 1)
+  $(".cool-input").attr('placeholder', randomPrompts[index])
+
+  // Set click and keypress events
   $(".cool-input").change(function() {
     sendGifRequest($(this).val())
   }).keypress(function (e) {
-  if (e.which == 13) {
-    sendGifRequest($(this).val())
-    return false;
-  }
-})
+    if (e.which == 13) {
+      sendGifRequest($(this).val())
+      return false;
+    }
+  })
+
+  // Show input
+  $(".cool-input").addClass("shown")
 })
