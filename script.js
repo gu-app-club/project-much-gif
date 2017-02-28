@@ -16,7 +16,7 @@ function sendGifRequest(search) {
     }
   }).done(function(response) {
     let index = getRandomInt(0, response.data.length - 1)
-    setBackground(response.data[index].images.downsized.url)
+    setBackground(response.data[index].images.downsized_large.url)
   })
 }
 
